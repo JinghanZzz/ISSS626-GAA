@@ -26,7 +26,7 @@ rdacc_sf <- read_csv("C:/JinghanZzz/ISSS608-VAA/In-class_Ex/In-class_Ex02/data/t
          !is.na(latitude) & latitude != "") %>%
   st_as_sf(coords = c("longitude", "latitude"),
            crs = 4326) %>%
-  st_transform(crs = 32647)
+  st_transform(crs = 32647)   #早点做st transformation，不然后面都是小数
 ```
 
 rdacc_sf <- read_csv("data/thai_road_accident_2019_2022.csv") %>%

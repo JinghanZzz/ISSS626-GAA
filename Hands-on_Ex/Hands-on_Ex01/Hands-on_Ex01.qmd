@@ -1,5 +1,5 @@
 ---
-title: "Hands-on Exercise 1"
+title: "Hands-on Exercise - 1. Geospatial Data Science with R"
 author: "ZHANG Jinghan"
 ---
 
@@ -9,29 +9,30 @@ Install and launching R packages
 
 The code chunk below uses p_load() of pacman package to check if tidyverse packages are installed in the computer. If they are, then they will be launched into R.
 
-
 ```{r}
 pacman::p_load(sf, tidyverse)
 ```
 
 Importing the data
+
 ```{r}
-mpsz = st_read(dsn = "C:/JinghanZzz/ISSS608-VAA/Hands-on_Ex/Hands-on_Ex01/data/MasterPlan2014SubzoneBoundaryWebSHP", 
+mpsz = st_read(dsn = "C:/JinghanZzz/ISSS608-VAA/Hands-on_Ex/Hands-on_Ex01/data/geospatial/MasterPlan2014SubzoneBoundaryWebSHP", 
                   layer = "MP14_SUBZONE_WEB_PL")
 ```
 
 ```{r}
-cyclingpath = st_read(dsn = "C:/JinghanZzz/ISSS608-VAA/Hands-on_Ex/Hands-on_Ex01/data/CyclingPath_Jul2024", 
+cyclingpath = st_read(dsn = "C:/JinghanZzz/ISSS608-VAA/Hands-on_Ex/Hands-on_Ex01/data/geospatial/CyclingPath_Jul2024", 
                          layer = "CyclingPathGazette")
 ```
 
 ```{r}
-preschool = st_read("C:/JinghanZzz/ISSS608-VAA/Hands-on_Ex/Hands-on_Ex01/data/PreSchoolsLocation.kml")
+preschool = st_read("C:/JinghanZzz/ISSS608-VAA/Hands-on_Ex/Hands-on_Ex01/data/geospatial/PreSchoolsLocation.kml")
 ```
 
 ```{r}
 st_geometry(mpsz)
 ```
+
 ```{r}
 glimpse(mpsz)
 ```
@@ -150,12 +151,4 @@ ggplot(data=mpsz3414,
   labs(title = "",
       x = "Pre-school density (per km sq)",
       y = "Pre-school count")
-```
-
-```{r}
-
-```
-
-```{r}
-
 ```
