@@ -1,0 +1,11 @@
+---
+title: "Take-home Exercise 1"
+author: "ZHANG Jinghan"
+date: "September 9,2024"
+date-modified: "last-modified"
+excute:
+  ecal: true
+  echo: true
+  freeze: true
+  warning: false
+---
