@@ -1,0 +1,44 @@
+---
+title: "In-class-Exercise 1"
+author: "ZHANG Jinghan"
+date: "Aug 20 2024"
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  message: false
+  freeze: true
+---
+
+```         
+```
+### The code
+```{r}
+pacman::p_load(sf, tidyverse, tmap, ggstatsplot)
+```
+
+```{r}
+mpsz14_shp = st_read(dsn = "C:/ISSS626-AY2024-25Aug/data/geospatial", 
+                  layer = "MP14_SUBZONE_WEB_PL")
+```                  
+
+
+```{r}
+#! output: false
+st_write(mpsz14_shp,
+         "C:/ISSS626-AY2024-25Aug/data/geospatial/MasterPlan2014SubzoneBoundaryWebKML.kml",
+         delete_dsn = TRUE)
+```
+
+```{r}
+mpsz19_kml = st_read("C:/ISSS626-AY2024-25Aug/data/geospatial/MasterPlan2019SubzoneBoundaryNoSeaKML.kml")
+```       
+```{r}
+mpsz19_shp = st_read("C:/ISSS626-AY2024-25Aug/data/geospatial/MasterPlan2019SubzoneBoundaryNoSeaGEOJSON.geojson")
+```   
+
+```{r}
+mpsz19_shp <- st_read(dsn = "C:/ISSS626-AY2024-25Aug/data/geospatial",
+                      layer = "MPSZ-2019")%>%
+  st_transform(crs=3414)
+```
