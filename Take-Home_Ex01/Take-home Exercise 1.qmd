@@ -9,3 +9,19 @@ excute:
   freeze: true
   warning: false
 ---
+
+```{r}
+pacam::p_load(sf, tidyverse, tmap, spNetwork)
+```
+
+```{r}
+acc <- read.csv("data/rawdata/thai_road_accident_2019_2022.csv")
+  mutate(Month_num = month(incident_datetime)) %>%
+  mutate(Month_fac = month(incident_datetime,
+                           label = true,
+                           abbr = TRUE))
+```
+
+```{r}
+write_rds(acc, "data//acc.rds")
+```
