@@ -1,0 +1,79 @@
+---
+title: "In-Class_Ex04"
+---
+```{r}
+pacman::p_load(sf,ggstatsplot,tmap,tidyverse,knitr,GWmodel)
+```
+
+```{r}
+hunan_sf <- st_read(dsn = "data/geospatial",
+                    layer = "Hunan")
+```
+
+```{r}
+hunan2012 <- read_csv("data/aspatial/Hunan_2012.csv")
+```
+
+```{r}
+human_sf <- left_join(human_sf,human2012) %>%
+  select(1:3,7,15,16,31,32)
+```
+
+```{r}
+human_sp <= human_sf %>%
+  as_Spatial()
+```
+
+```{r}
+bw_CV <- bw.gwr(GDPPC ~ 1,
+                data = human_sp,
+                approach = "CV",
+                adaptive = TRUE,
+                kernel = "bisquare",
+                longlat = T)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+gwstat <-gwss(data = human_sp,
+              vars = "GDPPC"
+              bw = bw_AIC,
+              kernal = "bisquare",
+              adaptive = TRUE,
+              longlat = T)
+```
+
+```{r}
+gwstat_df <= as.data.frame(gwstat$SDF)
+```
+
+```{r}
+human_gstat <- cbind(human_sf, gwstat_df)
+```
+
+p9
+```{r}
+tm_shape(human_gstat) +
+  tm_fill("GDPPC_LM",
+          n=5,
+          style = "quantile")+
+  tm_borders(alpha = 0.5)+
+  tm_layout(main.title = "Distriburion of geographically weighted man",
+            main.title.position = "center",
+            main.title.size = 2.0,
+            lengend.text.size = 1.2,
+            legend.height = 1.50,
+            legend.width =1.50,
+            frame = TRUE)
+```
+
+```{r}
+ 
+```
